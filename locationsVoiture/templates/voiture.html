@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block listVoiture %}
+<h2>Liste des voitures</h2>
+
+<table border="1" cellpadding="8" cellspacing="0">
+    <thead>
+        <tr>
+            <th>Modèle</th>
+            <th>Marque</th>
+            <th>Image</th>
+            <th>Disponible</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for v in voitures %}
+        <tr>
+            <td>{{ v.modele }}</td>
+            <td>{{ v.marque }}</td>
+            <td>
+                {% if v.image %}
+                    <img src="{{ v.image.url }}" alt="{{ v.modele }}" width="100">
+                {% else %}
+                    Pas d'image
+                {% endif %}
+            </td>
+            <td>
+                {% if v.disponible %}
+                    ✅ Oui
+                {% else %}
+                    ❌ Non
+                {% endif %}
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="4">Aucune voiture trouvée</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock listVoiture %}
