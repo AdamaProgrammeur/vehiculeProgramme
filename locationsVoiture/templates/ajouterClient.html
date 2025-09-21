@@ -4,12 +4,12 @@
 {% endblock message %}
 
 {% block content %}
+    <h2>Ajouter un client</h2>
     <div class="text-center">
-    <h2>Ajouter une voiture</h2>
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Ajouter</button>
+        <button type="submit" class="btn btn-primary">Ajouter</button>
     </form>
+    </div>  
 {% endblock %}
-</div>

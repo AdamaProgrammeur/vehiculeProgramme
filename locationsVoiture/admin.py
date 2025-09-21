@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Voiture
+from .models import Voiture, Client
 
 # Register your models here.
 
@@ -10,4 +10,10 @@ class voitureAdmin(admin.ModelAdmin):
 
 
 
+class ClientAdmin(admin.ModelAdmin):
+    list_display = ('nom', 'prenom', 'email', 'telephone')
+    search_fields = ('nom', 'prenom', 'email')
+
+
 admin.site.register(Voiture, voitureAdmin)
+admin.site.register(Client, ClientAdmin)

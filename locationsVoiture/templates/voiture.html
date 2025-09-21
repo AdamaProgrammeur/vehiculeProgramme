@@ -1,42 +1,27 @@
 {% extends "base.html" %}
 
 {% block listVoiture %}
-<h2>Liste des voitures</h2>
-
-<table border="1" cellpadding="8" cellspacing="0">
-    <thead>
-        <tr>
-            <th>Modèle</th>
-            <th>Marque</th>
-            <th>Image</th>
-            <th>Disponible</th>
-        </tr>
-    </thead>
-    <tbody>
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Liste des voitures</h2>
+    <div class="row">
         {% for v in voitures %}
-        <tr>
-            <td>{{ v.modele }}</td>
-            <td>{{ v.marque }}</td>
-            <td>
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
                 {% if v.image %}
-                    <img src="{{ v.image.url }}" alt="{{ v.modele }}" width="100">
-                {% else %}
-                    Pas d'image
+                <img src="{{ v.image.url }}" class="card-img-top" alt="{{ v.modele }}">
                 {% endif %}
-            </td>
-            <td>
-                {% if v.disponible %}
-                    ✅ Oui
-                {% else %}
-                    ❌ Non
-                {% endif %}
-            </td>
-        </tr>
+                <div class="card-body">
+                    <h5 class="card-title">{{ v.marque }}</h5>
+                    <p class="card-text">{{ v.modele }}</p>
+                </div>
+                <div class="card-footer text-center">
+                    <a href="#" class="btn btn-primary">Réserver</a>
+                </div>
+            </div>
+        </div>
         {% empty %}
-        <tr>
-            <td colspan="4">Aucune voiture trouvée</td>
-        </tr>
+        <p class="text-center">Aucune voiture trouvée</p>
         {% endfor %}
-    </tbody>
-</table>
+    </div>
+</div>
 {% endblock listVoiture %}

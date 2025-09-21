@@ -1,6 +1,13 @@
 {% extends "base.html" %}
 
+{% load static %}
+
 {% block titreAcceuil %}
-      <h1>Bienvenue sur la page  d'acceuil</h1>
-      <p>la page d'acceuil de l'application autogerence</p>
+<div class="container text-center mt-5">
+    <h1 class="mb-3">Bienvenue sur la page d'accueil</h1>
+    <p class="lead">La page d'accueil de l'application AutoGerence</p>
+
+    <!-- Image (choisir STATIC ou MEDIA selon le cas) -->
+    <img src="{% static 'images/voiture_b3pm5CP.jpeg' %}" alt="Voiture" class="img-thumbnail my-3" style="max-width:400px;">
+</div>
 {% endblock titreAcceuil %}
